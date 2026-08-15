@@ -12,7 +12,7 @@
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     /* ── Light mode — VM-inspired navy/gold palette ───── */
@@ -62,51 +62,51 @@
       --terminal-bg:   rgba(10,10,15,0.97);
     }
 
-    /* ── Dark mode ───────────────────────────────────── */
+    /* ── Dark mode — navy ledger at night, warm gold accent, no neon ── */
     html.dark {
-      --bg:            #0a0a0f;
-      --bg-alt:        rgba(18,18,26,0.5);
-      --surface:       rgba(255,255,255,0.04);
-      --surface-hover: rgba(255,255,255,0.08);
+      --bg:            #0B0E16;
+      --bg-alt:        rgba(20,24,36,0.55);
+      --surface:       rgba(255,255,255,0.035);
+      --surface-hover: rgba(255,255,255,0.07);
       --border:        rgba(255,255,255,0.1);
       --border-faint:  rgba(255,255,255,0.05);
-      --text-1:        #E2E8F0;
-      --text-2:        #94A3B8;
-      --text-3:        #475569;
-      --text-muted:    #94A3B8;
-      --text-subtle:   #475569;
+      --text-1:        #E7E9F0;
+      --text-2:        #9AA3B8;
+      --text-3:        #5B6478;
+      --text-muted:    #9AA3B8;
+      --text-subtle:   #5B6478;
 
-      --navy:          #818CF8;
-      --navy-mid:      #6366F1;
-      --navy-bg:       rgba(99,102,241,0.1);
-      --navy-bg-hi:    rgba(99,102,241,0.18);
-      --navy-border:   rgba(99,102,241,0.2);
+      --navy:          #B7C4E8;
+      --navy-mid:      #8FA3D6;
+      --navy-bg:       rgba(183,196,232,0.08);
+      --navy-bg-hi:    rgba(183,196,232,0.14);
+      --navy-border:   rgba(183,196,232,0.22);
 
-      --gold:          #FCD34D;
-      --gold-light:    #FDE68A;
-      --gold-bg:       rgba(245,158,11,0.1);
-      --gold-bg-hi:    rgba(245,158,11,0.18);
-      --gold-border:   rgba(245,158,11,0.2);
-      --gold-text:     #FCD34D;
+      --gold:          #D9B44E;
+      --gold-light:    #E8CC7A;
+      --gold-bg:       rgba(217,180,78,0.1);
+      --gold-bg-hi:    rgba(217,180,78,0.18);
+      --gold-border:   rgba(217,180,78,0.28);
+      --gold-text:     #D9B44E;
 
-      --teal:          #34D399;
-      --teal-bg:       rgba(52,211,153,0.08);
-      --teal-border:   rgba(52,211,153,0.2);
-      --indigo:        #818CF8;
-      --indigo-bg:     rgba(99,102,241,0.1);
-      --indigo-border: rgba(99,102,241,0.2);
-      --amber:         #FCD34D;
-      --amber-bg:      rgba(245,158,11,0.1);
-      --amber-border:  rgba(245,158,11,0.2);
+      --teal:          #D9B44E;
+      --teal-bg:       rgba(217,180,78,0.1);
+      --teal-border:   rgba(217,180,78,0.28);
+      --indigo:        #B7C4E8;
+      --indigo-bg:     rgba(183,196,232,0.08);
+      --indigo-border: rgba(183,196,232,0.22);
+      --amber:         #D9B44E;
+      --amber-bg:      rgba(217,180,78,0.1);
+      --amber-border:  rgba(217,180,78,0.28);
 
-      --nav-bg:        rgba(10,10,15,0.85);
-      --nav-border:    rgba(255,255,255,0.05);
+      --nav-bg:        rgba(11,14,22,0.88);
+      --nav-border:    rgba(217,180,78,0.12);
       --card-shadow:   none;
       --card-shadow-lg:none;
-      --grid-dot:      rgba(255,255,255,0.05);
-      --glow:          0 0 20px rgba(52,211,153,0.12);
-      --glow-hover:    0 0 30px rgba(52,211,153,0.25);
-      --terminal-bg:   rgba(18,18,26,0.97);
+      --grid-dot:      rgba(217,180,78,0.05);
+      --glow:          none;
+      --glow-hover:    0 0 24px rgba(217,180,78,0.18);
+      --terminal-bg:   rgba(13,16,24,0.97);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -120,6 +120,7 @@
       transition: background 0.2s, color 0.2s;
     }
     .font-mono { font-family: 'JetBrains Mono', monospace; }
+    h1, h2 { font-family: 'Source Serif 4', Georgia, serif; }
 
     .grid-pattern {
       background-image: radial-gradient(circle at 1px 1px, var(--grid-dot) 1px, transparent 0);
@@ -140,37 +141,24 @@
     .nav-link:hover { color: var(--navy); }
     html.dark .nav-link:hover { color: var(--teal); }
 
-    /* ── Gold shimmer ── */
-    @keyframes gold-shimmer {
-      0%   { background-position: 200% center; }
-      100% { background-position: -100% center; }
-    }
-
     .btn-primary {
       display: inline-flex; align-items: center; gap: 8px;
-      padding: 0.875rem 1.75rem; font-weight: 600; border-radius: 0.5rem;
+      padding: 0.875rem 1.75rem; font-weight: 600; border-radius: 2px;
       border: none; cursor: pointer; text-decoration: none; font-size: 0.9375rem;
-      transition: box-shadow 0.2s, filter 0.2s;
+      transition: box-shadow 0.2s, transform 0.15s;
     }
     html.light .btn-primary {
-      background: linear-gradient(
-        105deg,
-        #7A6219 0%, #A8831E 15%, #B8952A 28%,
-        #D4AC42 40%, #ECC84E 50%,
-        #D4AC42 60%, #B8952A 72%, #A8831E 85%, #7A6219 100%
-      );
-      background-size: 280% auto;
-      animation: gold-shimmer 2.8s linear infinite;
-      color: #1B2A4A;
+      background: var(--navy); color: #fff;
+      box-shadow: inset 0 -2px 0 0 var(--gold);
     }
-    html.light .btn-primary:hover { box-shadow: 0 4px 22px rgba(184,149,42,0.38); filter: brightness(1.04); }
-    html.dark  .btn-primary { background: #10b981; color: #0f172a; animation: none; }
-    html.dark  .btn-primary:hover { filter: brightness(1.08); box-shadow: 0 0 25px rgba(16,185,129,0.3); }
+    html.light .btn-primary:hover { box-shadow: inset 0 -3px 0 0 var(--gold-light); transform: translateY(-1px); }
+    html.dark  .btn-primary { background: var(--gold); color: #14171F; }
+    html.dark  .btn-primary:hover { filter: brightness(1.08); box-shadow: var(--glow-hover); }
 
     .btn-secondary {
       display: inline-flex; align-items: center; gap: 8px;
       padding: 0.875rem 1.75rem; background: var(--surface); color: var(--text-1);
-      font-weight: 600; border-radius: 0.5rem; border: 1px solid var(--border);
+      font-weight: 600; border-radius: 2px; border: 1px solid var(--border);
       cursor: pointer; transition: background 0.15s, border-color 0.15s;
       text-decoration: none; font-size: 0.9375rem;
     }
@@ -178,39 +166,33 @@
     html.dark .btn-secondary:hover { border-color: var(--teal-border); }
 
     .nav-cta {
-      padding: 0.4375rem 1.125rem; border-radius: 9999px;
-      font-size: 0.875rem; font-weight: 600; text-decoration: none;
-      transition: box-shadow 0.2s; border: none; cursor: pointer;
+      padding: 0.4375rem 1.125rem; border-radius: 2px;
+      font-size: 0.8125rem; font-weight: 600; text-decoration: none;
+      transition: background 0.15s, color 0.15s; border: 1px solid var(--navy);
+      cursor: pointer; color: var(--navy); background: transparent;
     }
-    html.light .nav-cta {
-      background: linear-gradient(
-        105deg,
-        #9A7A1E 0%, #B8952A 28%, #D4AC42 50%, #B8952A 72%, #9A7A1E 100%
-      );
-      background-size: 220% auto;
-      animation: gold-shimmer 3s linear infinite;
-      color: #1B2A4A;
-    }
-    html.light .nav-cta:hover { box-shadow: 0 2px 14px rgba(184,149,42,0.32); }
-    html.dark .nav-cta {
-      background: rgba(52,211,153,0.1); color: #34D399;
-      border: 1px solid rgba(52,211,153,0.25); animation: none;
-    }
-    html.dark .nav-cta:hover { box-shadow: 0 2px 12px rgba(52,211,153,0.2); }
+    html.light .nav-cta:hover { background: var(--navy); color: #fff; }
+    html.dark .nav-cta { border-color: var(--gold-border); color: var(--gold); }
+    html.dark .nav-cta:hover { background: var(--gold-bg); }
 
     /* ── Cards ── */
     .feature-card {
-      padding: 1.5rem; border-radius: 0.75rem;
-      background: var(--surface); border: 1px solid var(--border);
+      padding: 1.75rem 1.5rem 1.5rem; border-radius: 3px;
+      background: var(--surface); border: 1px solid var(--border); border-top: 2px solid var(--border);
       box-shadow: var(--card-shadow);
-      transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+      transition: border-top-color 0.2s, background 0.2s, box-shadow 0.2s;
     }
-    .feature-card:hover { border-color: var(--navy-border); background: var(--surface-hover); box-shadow: var(--card-shadow-lg); }
-    html.dark .feature-card:hover { border-color: var(--teal-border); }
+    .feature-card:hover { border-top-color: var(--gold); background: var(--surface-hover); box-shadow: var(--card-shadow-lg); }
+
+    .feature-card .icon-wrap {
+      background: none !important; border: none !important; width: auto !important; height: auto !important;
+      border-radius: 0 !important; margin-bottom: 0.875rem !important;
+    }
+    .feature-card .icon-wrap i, .feature-card .icon-wrap svg { width: 20px !important; height: 20px !important; }
 
     .site-card {
       background: var(--surface); border: 1px solid var(--border);
-      box-shadow: var(--card-shadow); border-radius: 0.75rem;
+      box-shadow: var(--card-shadow); border-radius: 3px;
     }
 
     /* ── Terminal ── */
@@ -230,27 +212,20 @@
     .terminal .t-hi     { color: #FCD34D; }
     .terminal .t-prompt { color: #6366F1; user-select: none; }
 
-    /* ── Gradient text ── */
-    .gradient-text { -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    html.light .gradient-text { background-image: linear-gradient(135deg, #1B2A4A 0%, #8A6E18 45%, #C9A84C 100%); }
-    html.dark  .gradient-text { background-image: linear-gradient(135deg, #00d4aa 0%, #6366f1 50%, #f59e0b 100%); }
-
-    /* ── Pills ── */
-    .pill {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 4px 14px; border-radius: 9999px; font-size: 0.7rem;
-      font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 0.08em;
-      background: var(--navy-bg); border: 1px solid var(--navy-border); color: var(--navy);
+    /* ── Headline accent ── */
+    .gradient-text {
+      display: inline-block; color: var(--text-1);
+      border-bottom: 3px solid var(--gold); padding-bottom: 0.06em;
     }
-    html.dark .pill { background: var(--teal-bg); border-color: var(--teal-border); color: var(--teal); }
 
-    .pill-gold {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 4px 14px; border-radius: 9999px; font-size: 0.7rem;
-      font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 0.08em;
-      background: var(--gold-bg); border: 1px solid var(--gold-border); color: var(--gold-text);
+    /* ── Eyebrow labels ── */
+    .pill, .pill-gold {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 0 0 6px; border-radius: 0; font-size: 0.6875rem;
+      font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 0.14em;
+      background: none; border: none; border-bottom: 1px solid var(--gold-border); color: var(--gold-text);
     }
-    html.dark .pill-gold { background: var(--amber-bg); border-color: var(--amber-border); color: var(--amber); }
+    html.dark .pill, html.dark .pill-gold { color: var(--gold); }
 
     .icon-wrap {
       width: 40px; height: 40px; border-radius: 10px;
@@ -318,8 +293,9 @@
 
       <!-- Right: nav links + theme toggle + CTA -->
       <div class="flex items-center gap-6">
-        <a href="#features"  class="nav-link hidden md:inline">Features</a>
-        <a href="#beta"      class="nav-link hidden md:inline">Beta Access</a>
+        <a href="#features"     class="nav-link hidden md:inline">Features</a>
+        <a href="#architecture" class="nav-link hidden md:inline">Architecture</a>
+        <a href="#beta"         class="nav-link hidden md:inline">Beta Access</a>
         <a href="#providers" class="nav-link hidden md:inline">LLM Support</a>
 
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
@@ -335,57 +311,113 @@
   <main id="main">
 
     <!-- ════════════════════════════ HERO ════════════════════════════ -->
-    <section style="padding: 6rem 1.5rem 5rem;">
-      <div class="max-w-4xl mx-auto text-center">
+    <section style="padding: 5rem 1.5rem 4.5rem;">
+      <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2" style="gap:3.5rem;align-items:center;">
 
-        <div style="display:flex;justify-content:center;margin-bottom:1.5rem;">
-          <span class="pill">
+        <div>
+          <span class="pill" style="margin-bottom:1.5rem;">
             <i data-lucide="lock" style="width:10px;height:10px;"></i>
             Private Beta
           </span>
+
+          <h1 style="font-weight:600;font-size:clamp(2.25rem,4.2vw,3.25rem);line-height:1.15;letter-spacing:-0.01em;margin-bottom:1.375rem;">
+            AI memory that stays<br>
+            <span class="gradient-text">on your machine.</span>
+          </h1>
+
+          <p style="font-size:1.0625rem;color:var(--text-2);max-width:520px;margin:0 0 2.25rem;line-height:1.7;">
+            VeritasMemoria is a structured, auditable memory layer for AI-assisted workflows,
+            built on a geometry-grounded knowledge graph that separates durable governance from
+            active work. Every record is cryptographically signed and hash-chained.
+            No cloud. No accounts. No telemetry.
+          </p>
+
+          <div style="display:flex;flex-wrap:wrap;gap:0.875rem;">
+            <a href="#beta" class="btn-primary">
+              <i data-lucide="mail" style="width:16px;height:16px;"></i>
+              Request Beta Access
+            </a>
+            <a href="#features" class="btn-secondary">
+              <i data-lucide="arrow-down" style="width:16px;height:16px;"></i>
+              See How It Works
+            </a>
+          </div>
+
+          <!-- Trust strip -->
+          <div style="margin-top:3rem;display:flex;flex-wrap:wrap;gap:1.5rem 2rem;">
+            <div style="display:flex;align-items:center;gap:8px;font-size:0.8125rem;color:var(--text-muted);">
+              <i data-lucide="hard-drive" style="width:14px;height:14px;color:var(--navy);"></i>
+              All data stored locally
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:0.8125rem;color:var(--text-muted);">
+              <i data-lucide="shield" style="width:14px;height:14px;color:var(--navy);"></i>
+              HMAC-signed records
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:0.8125rem;color:var(--text-muted);">
+              <i data-lucide="wifi-off" style="width:14px;height:14px;color:var(--navy);"></i>
+              Works fully offline
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:0.8125rem;color:var(--text-muted);">
+              <i data-lucide="cpu" style="width:14px;height:14px;color:var(--navy);"></i>
+              Any LLM or none
+            </div>
+          </div>
         </div>
 
-        <h1 style="font-size:clamp(2.25rem,5vw,3.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;margin-bottom:1.25rem;">
-          AI memory that stays<br>
-          <span class="gradient-text">on your machine.</span>
-        </h1>
+        <!-- Signature visual: the belief graph as a hyperbolic disk -->
+        <div style="display:flex;flex-direction:column;align-items:center;">
+          <svg viewBox="0 0 460 460" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;max-width:400px;" role="img" aria-label="Diagram of the belief graph as a disk. Governance nodes sit at the center, contested and provisional material sits toward the edge.">
+            <circle cx="230" cy="230" r="200" fill="none" stroke="var(--border)" stroke-width="1"/>
+            <circle cx="230" cy="230" r="140" fill="none" stroke="var(--border-faint)" stroke-width="1" stroke-dasharray="2 5"/>
+            <circle cx="230" cy="230" r="75" fill="none" stroke="var(--border-faint)" stroke-width="1" stroke-dasharray="2 5"/>
 
-        <p style="font-size:1.125rem;color:var(--text-2);max-width:640px;margin:0 auto 2.5rem;line-height:1.7;">
-          VeritasMemoria is a structured, auditable memory layer for AI-assisted workflows,
-          built on a geometry-grounded knowledge graph that separates durable governance from
-          active work. Every record is cryptographically signed and hash-chained.
-          No cloud. No accounts. No telemetry.
-        </p>
+            <g fill="none" stroke="var(--navy-border)" stroke-width="1">
+              <path d="M230,230 Q190,205 150,180"/>
+              <path d="M230,230 Q270,200 310,190"/>
+              <path d="M205,245 Q185,270 170,300"/>
+              <path d="M245,255 Q275,270 300,290"/>
+              <path d="M250,215 Q240,165 230,120"/>
+              <path d="M205,245 Q220,295 230,340"/>
+              <path d="M150,180 Q120,145 100,110"/>
+              <path d="M310,190 Q335,160 360,130"/>
+              <path d="M170,300 Q130,320 95,340"/>
+              <path d="M300,290 Q330,305 365,320"/>
+              <path d="M230,120 Q230,80 230,45"/>
+              <path d="M230,340 Q230,375 230,410"/>
+              <path d="M150,180 Q100,205 55,230"/>
+              <path d="M310,190 Q355,210 400,230"/>
+            </g>
 
-        <div style="display:flex;flex-wrap:wrap;gap:0.875rem;justify-content:center;">
-          <a href="#beta" class="btn-primary">
-            <i data-lucide="mail" style="width:16px;height:16px;"></i>
-            Request Beta Access
-          </a>
-          <a href="#features" class="btn-secondary">
-            <i data-lucide="arrow-down" style="width:16px;height:16px;"></i>
-            See How It Works
-          </a>
-        </div>
+            <g fill="var(--gold)">
+              <circle cx="230" cy="230" r="6"/>
+              <circle cx="250" cy="215" r="5"/>
+              <circle cx="205" cy="245" r="5"/>
+              <circle cx="245" cy="255" r="4.5"/>
+            </g>
 
-        <!-- Trust strip -->
-        <div style="margin-top:3.5rem;display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;">
-          <div style="display:flex;align-items:center;gap:8px;font-size:0.8125rem;color:var(--text-muted);">
-            <i data-lucide="hard-drive" style="width:14px;height:14px;color:var(--navy);"></i>
-            All data stored locally
-          </div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:0.8125rem;color:var(--text-muted);">
-            <i data-lucide="shield" style="width:14px;height:14px;color:var(--navy);"></i>
-            HMAC-signed records
-          </div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:0.8125rem;color:var(--text-muted);">
-            <i data-lucide="wifi-off" style="width:14px;height:14px;color:var(--navy);"></i>
-            Works fully offline
-          </div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:0.8125rem;color:var(--text-muted);">
-            <i data-lucide="cpu" style="width:14px;height:14px;color:var(--navy);"></i>
-            Any LLM or none
-          </div>
+            <g fill="var(--navy)">
+              <circle cx="150" cy="180" r="4.5"/>
+              <circle cx="310" cy="190" r="4"/>
+              <circle cx="170" cy="300" r="4.5"/>
+              <circle cx="300" cy="290" r="4"/>
+              <circle cx="230" cy="120" r="4"/>
+              <circle cx="230" cy="340" r="4"/>
+            </g>
+
+            <g fill="var(--navy)" opacity="0.5">
+              <circle cx="100" cy="110" r="3"/>
+              <circle cx="360" cy="130" r="2.5"/>
+              <circle cx="95" cy="340" r="3"/>
+              <circle cx="365" cy="320" r="2.5"/>
+              <circle cx="230" cy="45" r="2.5"/>
+              <circle cx="230" cy="410" r="2.5"/>
+              <circle cx="55" cy="230" r="2.5"/>
+              <circle cx="400" cy="230" r="2.5"/>
+            </g>
+          </svg>
+          <p style="font-family:'JetBrains Mono',monospace;font-size:0.6875rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-subtle);text-align:center;margin-top:1.25rem;">
+            Governance at the core &nbsp;·&nbsp; contested claims at the edge
+          </p>
         </div>
 
       </div>
@@ -455,9 +487,11 @@
             <div class="icon-wrap icon-navy" style="margin-bottom:1rem;">
               <i data-lucide="search" style="width:18px;height:18px;"></i>
             </div>
-            <h3 style="font-weight:600;margin-bottom:0.5rem;">Semantic Retrieval</h3>
+            <h3 style="font-weight:600;margin-bottom:0.5rem;">Hybrid Retrieval</h3>
             <p style="font-size:0.875rem;color:var(--text-2);line-height:1.65;">
-              Hybrid search combining dense vector embeddings and keyword indexing. Finds the right memory even when you don't remember exactly how you phrased it.
+              Combines dense vector embeddings, keyword indexing, and graph traversal. Finds the right
+              memory whether you remember the exact phrasing, a related concept, or just that it
+              connects to something else you're looking at.
             </p>
           </div>
 
@@ -467,7 +501,10 @@
             </div>
             <h3 style="font-weight:600;margin-bottom:0.5rem;">Transparent Storage</h3>
             <p style="font-size:0.875rem;color:var(--text-2);line-height:1.65;">
-              SQLite by default — a single file you can inspect, back up, or move. No opaque binary formats. Your data is always accessible without VM.
+              SQLite by default, a single file, no proprietary format and no vendor lock-in. It isn't
+              meant to be hand-edited though: the hash chain is deliberately fragile to any change made
+              outside VM, so tampering is detectable rather than invisible. Read it, back it up, move
+              the file. Don't edit it directly.
             </p>
           </div>
 
@@ -490,8 +527,92 @@
             <h3 style="font-weight:600;margin-bottom:0.5rem;">Regulatory-Grounded Permissions</h3>
             <p style="font-size:0.875rem;color:var(--text-2);line-height:1.65;">
               Every action an agent can take is checked against layered permission rules tied to
-              domain-specific compliance concerns — legal, medical, or financial — so higher-level
-              policy can only restrict, never expand, what's allowed.
+              domain-specific compliance concerns, legal, medical, or financial, so higher-level
+              policy can only restrict, never expand, what's allowed. Built to meet EU AI Act
+              high-risk system obligations natively: audit trails, human oversight, and traceability
+              aren't bolted on afterward, they're how the system works by default.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════ ARCHITECTURE / UNDER THE HOOD ════════════════════════════ -->
+    <section id="architecture" style="padding:5rem 1.5rem;">
+      <div class="max-w-6xl mx-auto">
+
+        <div class="text-center" style="margin-bottom:3rem;">
+          <span class="pill" style="margin-bottom:1rem;display:inline-flex;">Under the Hood</span>
+          <h2 style="font-size:clamp(1.75rem,3vw,2.25rem);font-weight:700;letter-spacing:-0.02em;">
+            Geometry-grounded, not just embedded
+          </h2>
+          <p style="color:var(--text-2);margin-top:0.75rem;max-width:640px;margin-left:auto;margin-right:auto;">
+            The belief graph isn't a bag of vectors ranked by cosine similarity. Distance, curvature,
+            and convergence are real signals the system acts on, not decoration on top of a standard database.
+          </p>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;">
+
+          <div class="feature-card">
+            <div class="icon-wrap icon-navy" style="margin-bottom:1rem;">
+              <i data-lucide="network" style="width:18px;height:18px;"></i>
+            </div>
+            <h3 style="font-weight:600;margin-bottom:0.5rem;">Hyperbolic Belief Geometry</h3>
+            <p style="font-size:0.875rem;color:var(--text-2);line-height:1.65;">
+              Every memory occupies a real position in a curved graph, placed by how settled and how
+              central it is. Governance sits at the core, load-bearing and hard to move. Contested,
+              provisional material sits out toward the edge, where it belongs.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="icon-wrap icon-gold" style="margin-bottom:1rem;">
+              <i data-lucide="gauge" style="width:18px;height:18px;"></i>
+            </div>
+            <h3 style="font-weight:600;margin-bottom:0.5rem;">Knows When Reasoning Has Converged</h3>
+            <p style="font-size:0.875rem;color:var(--text-2);line-height:1.65;">
+              Most systems answer as soon as they retrieve something plausible. VM tracks a spectral
+              stability signal across the graph and won't let a decision commit until reasoning has
+              actually settled, not just until something matched the query.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="icon-wrap icon-navy" style="margin-bottom:1rem;">
+              <i data-lucide="crosshair" style="width:18px;height:18px;"></i>
+            </div>
+            <h3 style="font-weight:600;margin-bottom:0.5rem;">Hunts Its Own Blind Spots</h3>
+            <p style="font-size:0.875rem;color:var(--text-2);line-height:1.65;">
+              A dedicated adversarial search runs against the belief graph looking for states that
+              look internally consistent but actually reason in circles. Anything it finds gets
+              flagged for human review before it can be acted on.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="icon-wrap icon-gold" style="margin-bottom:1rem;">
+              <i data-lucide="history" style="width:18px;height:18px;"></i>
+            </div>
+            <h3 style="font-weight:600;margin-bottom:0.5rem;">Full Provenance, Any Point in Time</h3>
+            <p style="font-size:0.875rem;color:var(--text-2);line-height:1.65;">
+              Every write is a dated deposit. Every correction is recorded as an event that disturbs
+              the record rather than erasing it. Ask what the system believed as of any past date and
+              it reconstructs that exact state.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="icon-wrap icon-navy" style="margin-bottom:1rem;">
+              <i data-lucide="archive" style="width:18px;height:18px;"></i>
+            </div>
+            <h3 style="font-weight:600;margin-bottom:0.5rem;">Nothing Is Truly Deleted</h3>
+            <p style="font-size:0.875rem;color:var(--text-2);line-height:1.65;">
+              Removed memories move to an append-only shadow archive and stay there indefinitely, not
+              until a retention window closes. For regulated work, VM also retains the model's actual
+              reasoning trace, every tool call and intermediate step, not just the final answer, so you
+              can audit how a conclusion was reached.
             </p>
           </div>
 
@@ -552,7 +673,7 @@
             <div style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--text-subtle);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.08em;">Step 3</div>
             <h3 style="font-weight:600;margin-bottom:0.5rem;">Retrieve it later</h3>
             <p style="font-size:0.875rem;color:var(--text-2);line-height:1.6;">
-              Semantic and keyword search surface the right context instantly. Pass it to any LLM or read it yourself.
+              Hybrid semantic, keyword, and graph search surface the right context instantly. Pass it to any LLM or read it yourself.
             </p>
           </div>
 
@@ -692,9 +813,9 @@
         <h2 style="font-size:clamp(1.5rem,3vw,2rem);font-weight:700;letter-spacing:-0.02em;margin-bottom:0.875rem;">
           Your data. Your machine. Your call.
         </h2>
-        <p style="color:var(--text-2);margin-bottom:2rem;max-width:440px;margin-left:auto;margin-right:auto;">
-          VeritasMemoria ships blank and learns only what you explicitly give it.
-          No defaults phoning home. No model training on your memories.
+        <p style="color:var(--text-2);margin-bottom:2rem;max-width:460px;margin-left:auto;margin-right:auto;">
+          VeritasMemoria calibrates to your domain's ontology out of the box, then learns only what
+          you explicitly give it from there. No defaults phoning home. No model training on your memories.
         </p>
         <div style="display:flex;flex-wrap:wrap;gap:0.875rem;justify-content:center;">
           <a href="#beta" class="btn-primary">
